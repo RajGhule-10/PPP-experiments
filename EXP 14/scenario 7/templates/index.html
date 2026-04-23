@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <h2>Temperature Converter</h2>
+
+    <form method="POST">
+        <input type="text" name="celsius" placeholder="Enter Celsius"><br><br>
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+        <h3>Fahrenheit: {{ result }} °F</h3>
+    {% endif %}
+</body>
+</html>

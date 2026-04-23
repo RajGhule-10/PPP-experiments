@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bar Chart Generator</title>
+</head>
+<body>
+    <h2>Enter 3 Values</h2>
+
+    <form method="POST">
+        <input type="text" name="value1" placeholder="Enter Value 1"><br><br>
+        <input type="text" name="value2" placeholder="Enter Value 2"><br><br>
+        <input type="text" name="value3" placeholder="Enter Value 3"><br><br>
+        <button type="submit">Generate Chart</button>
+    </form>
+
+    {% if error %}
+        <h3 style="color:red;">{{ error }}</h3>
+    {% endif %}
+
+    {% if chart %}
+        <h3>Generated Bar Chart</h3>
+        <img src="{{ url_for('static', filename='chart.png') }}">
+    {% endif %}
+</body>
+</html>

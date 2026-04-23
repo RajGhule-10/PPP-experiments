@@ -1,0 +1,37 @@
+print("SY-5", "Raj Ghule", "Roll_no-40")
+
+import numpy as np
+from sklearn.model_selection import train_test_split
+import tensorflow as tf
+from tensorflow import keras
+
+X = np.array([[1], [2], [3], [4], [5], [6], [7], [8]])
+y = np.array([0, 0, 0, 1, 1, 1, 1, 1])
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
+
+model = keras.Sequential([
+    keras.Input(shape=(1,)),
+    keras.layers.Dense(8, activation='relu'),
+    keras.layers.Dense(1, activation='sigmoid')
+])
+
+model.compile(
+    optimizer='adam',
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)
+
+model.fit(X_train, y_train, epochs=20, verbose=0)
+
+new_data = np.array([[2], [6]])   # new inputs
+
+predictions = model.predict(new_data)
+
+predicted_classes = (predictions > 0.5).astype(int)
+
+print("\nNew Inputs:", new_data.flatten())
+print("Predicted Probabilities:", predictions.flatten())
+print("Predicted Classes:", predicted_classes.flatten())

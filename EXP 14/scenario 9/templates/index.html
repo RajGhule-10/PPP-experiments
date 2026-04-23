@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h2>Feedback Collection Form</h2>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter Your Name"><br><br>
+
+        <textarea name="message" placeholder="Enter Your Feedback"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if name and message %}
+        <h3>Feedback Submitted Successfully!</h3>
+        <p><b>Name:</b> {{ name }}</p>
+        <p><b>Feedback:</b> {{ message }}</p>
+    {% endif %}
+</body>
+</html>
